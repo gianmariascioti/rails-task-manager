@@ -1,0 +1,20 @@
+
+<h1><em>All Tasks:</em></h1>
+
+
+<ul class="list-inline">
+  <% @tasks.each do |task| %>
+  <li>
+    <% if task.completed == true %>
+    ●
+    <% else %>
+    ○
+    <% end %>
+    <%= link_to task.title, task_path(task)%> | <%= link_to ' ♺ ', task_path(task), method: :delete, data: {:confirm => 'Are you sure?'} %>
+  </li>
+  <% end %>
+</ul>
+
+
+<%= link_to '☩ Add a Task', new_task_path %>
+
